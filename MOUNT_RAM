@@ -1,0 +1,13 @@
+#!/bin/bash
+echo "ENTER THE SIZE OF RAM TO USE(EG:1G,512M):"
+read SIZE
+if [ ! -d "RAMfs" ];then
+    mkdir RAMfs
+fi
+sudo mount -t tmpfs -o size=$SIZE tmpfs RAMfs
+if [ $? -eq 0 ]; then
+    echo "RAM DISK CREATED"
+else
+    echo "FAILD"
+fi
+
